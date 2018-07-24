@@ -3,4 +3,5 @@
     <string name="label_headerFirstName">First Name</string>
     <string name="label_headerLastName">Last Name</string>
     <string name="label_headerYear">Year</string>
+    <string name="header_labelGPA">GPA</string>
 </resources>
