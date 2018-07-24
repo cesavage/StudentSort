@@ -18,7 +18,6 @@
             android:id="@+id/header_gpa"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:background="@android:color/holo_blue_dark"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/header_year"
@@ -59,7 +58,6 @@
             android:id="@+id/header_year"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:background="@android:color/holo_blue_dark"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/guideline6"
             app:layout_constraintStart_toStartOf="@+id/guideline5"
@@ -108,20 +106,19 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintGuide_begin="288dp" />
+            app:layout_constraintGuide_percent="0.75" />
 
         <android.support.constraint.Guideline
             android:id="@+id/guideline5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintGuide_begin="192dp" />
+            app:layout_constraintGuide_percent="0.50" />
 
         <android.support.constraint.ConstraintLayout
             android:id="@+id/header_firstName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:background="@android:color/holo_blue_dark"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/guideline4"
             app:layout_constraintHorizontal_bias="0.0"
@@ -162,11 +159,21 @@
             android:id="@+id/header_lastName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:background="@android:color/holo_blue_dark"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/guideline5"
             app:layout_constraintStart_toStartOf="@+id/guideline4"
             app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/imageView_header_arrowLastName"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_marginEnd="8dp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/arrow_up" />
 
             <TextView
                 android:id="@+id/textView2"
@@ -186,16 +193,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <ImageView
-                android:id="@+id/imageView_header_arrowLastName"
-                android:layout_width="15dp"
-                android:layout_height="15dp"
-                android:layout_marginEnd="8dp"
-                android:visibility="gone"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/arrow_up" />
         </android.support.constraint.ConstraintLayout>
     </android.support.constraint.ConstraintLayout>
 
