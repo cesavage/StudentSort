@@ -1,5 +1,6 @@
 package bsu.edu.studentsort;
 
+import android.opengl.Visibility;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.constraint.ConstraintLayout;
@@ -11,7 +12,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import java.io.Serializable;
-import java.util.Collections;
 import java.util.List;
 
 public class StudentsFragment extends android.support.v4.app.Fragment {
@@ -32,6 +32,11 @@ public class StudentsFragment extends android.support.v4.app.Fragment {
     private ImageView mGpaHeaderArrow;
 
     private static final String KEY_STUDENTS = "students";
+    private static final String KEY_FIRST_NAME_ARROW = "firstNameArrow";
+    private static final String KEY_LAST_NAME_ARROW = "lastNameArrow";
+    private static final String KEY_YEAR_ARROW = "yearArrow";
+    private static final String KEY_GPA_ARROW = "gpaArrow";
+
 
     @Override
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup container, Bundle savedInstanceState){
@@ -43,6 +48,10 @@ public class StudentsFragment extends android.support.v4.app.Fragment {
         if(savedInstanceState != null){
             mStudentStore = StudentStore.getStudentStore();
             mStudentStore.mStudentList = (List<Student>) savedInstanceState.getSerializable(KEY_STUDENTS);
+            mFirstNameHeaderArrow.setVisibility((Integer) savedInstanceState.getSerializable(KEY_FIRST_NAME_ARROW));
+            mLastNameHeaderArrow.setVisibility((Integer) savedInstanceState.getSerializable(KEY_LAST_NAME_ARROW));
+            mYearHeaderArrow.setVisibility((Integer) savedInstanceState.getSerializable(KEY_YEAR_ARROW));
+            mGpaHeaderArrow.setVisibility((Integer) savedInstanceState.getSerializable(KEY_GPA_ARROW));
             updateUI();
         }
 
@@ -184,5 +193,9 @@ public class StudentsFragment extends android.support.v4.app.Fragment {
     public void onSaveInstanceState(@NonNull Bundle savedInstanceState){
         super.onSaveInstanceState(savedInstanceState);
         savedInstanceState.putSerializable(KEY_STUDENTS, (Serializable) mStudentStore.mStudentList);
+        savedInstanceState.putSerializable(KEY_FIRST_NAME_ARROW, (Serializable) mFirstNameHeaderArrow.getVisibility());
+        savedInstanceState.putSerializable(KEY_LAST_NAME_ARROW, (Serializable) mLastNameHeaderArrow.getVisibility());
+        savedInstanceState.putSerializable(KEY_YEAR_ARROW, (Serializable) mYearHeaderArrow.getVisibility());
+        savedInstanceState.putSerializable(KEY_GPA_ARROW, (Serializable) mGpaHeaderArrow.getVisibility());
     }
 }
