@@ -8,10 +8,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.io.Serializable;
+import java.util.List;
+
 public class StudentsFragment extends android.support.v4.app.Fragment {
     private View mInflatedFragmentView;
     private RecyclerView mStudentsRecyclerView;
     private StudentStore mStudentStore;
+
+    private static final String KEY_STUDENTS = "students";
 
     @Override
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup container, Bundle savedInstanceState){
@@ -20,7 +25,17 @@ public class StudentsFragment extends android.support.v4.app.Fragment {
         setWidgetVariables();
         configureWidgets();
 
-        getStudentsInformationFromFile();
+        if(savedInstanceState != null){
+            mStudentStore = StudentStore.getStudentStore();
+            mStudentStore.mStudentList = (List<Student>) savedInstanceState.getSerializable(KEY_STUDENTS);
+            updateUI();
+        }
+
+        else{
+            getStudentsInformationFromFile();
+        }
+
+
 
         return mInflatedFragmentView;
     }
@@ -79,5 +94,11 @@ public class StudentsFragment extends android.support.v4.app.Fragment {
             return mStudentStore.mStudentList.size();
         }
 
+    }
+
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle savedInstanceState){
+        super.onSaveInstanceState(savedInstanceState);
+        savedInstanceState.putSerializable(KEY_STUDENTS, (Serializable) mStudentStore.mStudentList);
     }
 }
