@@ -2,11 +2,13 @@ package bsu.edu.studentsort;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import java.io.Serializable;
 import java.util.Collections;
@@ -16,6 +18,18 @@ public class StudentsFragment extends android.support.v4.app.Fragment {
     private View mInflatedFragmentView;
     private RecyclerView mStudentsRecyclerView;
     private StudentStore mStudentStore;
+
+    private ConstraintLayout mFirstNameHeader;
+    private ImageView mFirstNameHeaderArrow;
+
+    private ConstraintLayout mLastNameHeader;
+    private ImageView mLastNameHeaderArrow;
+
+    private ConstraintLayout mYearHeader;
+    private ImageView mYearHeaderArrow;
+
+    private ConstraintLayout mGpaHeader;
+    private ImageView mGpaHeaderArrow;
 
     private static final String KEY_STUDENTS = "students";
 
@@ -46,6 +60,18 @@ public class StudentsFragment extends android.support.v4.app.Fragment {
 
     private void setWidgetVariables(){
         mStudentsRecyclerView = mInflatedFragmentView.findViewById(R.id.recyclerView_students);
+
+        mFirstNameHeader = mInflatedFragmentView.findViewById(R.id.header_firstName);
+        mFirstNameHeaderArrow = mInflatedFragmentView.findViewById(R.id.imageView_header_arrowFirstName);
+
+        mLastNameHeader = mInflatedFragmentView.findViewById(R.id.header_lastName);
+        mLastNameHeaderArrow = mInflatedFragmentView.findViewById(R.id.imageView_header_arrowLastName);
+
+        mYearHeader = mInflatedFragmentView.findViewById(R.id.header_year);
+        mYearHeaderArrow = mInflatedFragmentView.findViewById(R.id.imageView_header_arrowYear);
+
+        mGpaHeader = mInflatedFragmentView.findViewById(R.id.header_gpa);
+        mGpaHeaderArrow = mInflatedFragmentView.findViewById(R.id.imageView_header_arrowGPA);
     }
 
 
@@ -53,6 +79,50 @@ public class StudentsFragment extends android.support.v4.app.Fragment {
 
     private void configureWidgets(){
         mStudentsRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+
+        mFirstNameHeader.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mStudentStore.sortByFirstName();
+                hideAllArrows();
+                mFirstNameHeaderArrow.setVisibility(View.VISIBLE);
+
+                updateUI();
+            }
+        });
+
+        mLastNameHeader.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mStudentStore.sortByLastName();
+                hideAllArrows();
+                mLastNameHeaderArrow.setVisibility(View.VISIBLE);
+
+                updateUI();
+            }
+        });
+
+        mYearHeader.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mStudentStore.sortByYearIndex();
+                hideAllArrows();
+                mYearHeaderArrow.setVisibility(View.VISIBLE);
+
+                updateUI();
+            }
+        });
+
+        mGpaHeader.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mStudentStore.sortByGpa();
+                hideAllArrows();
+                mGpaHeaderArrow.setVisibility(View.VISIBLE);
+
+                updateUI();
+            }
+        });
     }
 
 
@@ -68,6 +138,15 @@ public class StudentsFragment extends android.support.v4.app.Fragment {
         mStudentStore.sortByYearIndex();
         //mStudentStore.sortByGpa();
         updateUI();
+    }
+
+
+
+    private void hideAllArrows(){
+        mFirstNameHeaderArrow.setVisibility(View.GONE);
+        mLastNameHeaderArrow.setVisibility(View.GONE);
+        mYearHeaderArrow.setVisibility(View.GONE);
+        mGpaHeaderArrow.setVisibility(View.GONE);
     }
 
 
