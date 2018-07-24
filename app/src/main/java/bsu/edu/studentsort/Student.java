@@ -2,9 +2,10 @@ package bsu.edu.studentsort;
 
 import android.support.annotation.NonNull;
 
+import java.io.Serializable;
 import java.util.Comparator;
 
-public class Student implements Comparable<Student> {
+public class Student implements Comparable<Student>, Serializable {
     String firstName;
     String lastName;
     String year;

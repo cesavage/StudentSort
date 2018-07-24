@@ -142,10 +142,9 @@ public class StudentsFragment extends android.support.v4.app.Fragment {
         jsonParser.parseJson();
 
         mStudentStore = StudentStore.getStudentStore();
-        //mStudentStore.sortByFirstName();
-        //mStudentStore.sortByLastName();
-        mStudentStore.sortByYearIndex();
-        //mStudentStore.sortByGpa();
+        mStudentStore.sortByFirstName();
+        hideAllArrows();
+        mFirstNameHeaderArrow.setVisibility(View.VISIBLE);
         updateUI();
     }
 
@@ -197,5 +196,6 @@ public class StudentsFragment extends android.support.v4.app.Fragment {
         savedInstanceState.putSerializable(KEY_LAST_NAME_ARROW, (Serializable) mLastNameHeaderArrow.getVisibility());
         savedInstanceState.putSerializable(KEY_YEAR_ARROW, (Serializable) mYearHeaderArrow.getVisibility());
         savedInstanceState.putSerializable(KEY_GPA_ARROW, (Serializable) mGpaHeaderArrow.getVisibility());
+
     }
 }
