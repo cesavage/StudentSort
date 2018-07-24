@@ -1,6 +1,5 @@
 package bsu.edu.studentsort;
 
-import android.opengl.Visibility;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.constraint.ConstraintLayout;
@@ -38,6 +37,8 @@ public class StudentsFragment extends android.support.v4.app.Fragment {
     private static final String KEY_GPA_ARROW = "gpaArrow";
 
 
+
+
     @Override
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup container, Bundle savedInstanceState){
         mInflatedFragmentView = layoutInflater.inflate(R.layout.fragment_students, container, false);
@@ -58,8 +59,6 @@ public class StudentsFragment extends android.support.v4.app.Fragment {
         else{
             getStudentsInformationFromFile();
         }
-
-
 
         return mInflatedFragmentView;
     }
@@ -143,10 +142,13 @@ public class StudentsFragment extends android.support.v4.app.Fragment {
 
         mStudentStore = StudentStore.getStudentStore();
         mStudentStore.sortByFirstName();
+
         hideAllArrows();
         mFirstNameHeaderArrow.setVisibility(View.VISIBLE);
+
         updateUI();
     }
+
 
 
 
@@ -163,6 +165,7 @@ public class StudentsFragment extends android.support.v4.app.Fragment {
         StudentsRecyclerViewAdapter studentsRecyclerViewAdapter = new StudentsRecyclerViewAdapter();
         mStudentsRecyclerView.setAdapter(studentsRecyclerViewAdapter);
     }
+
 
 
 
@@ -188,6 +191,9 @@ public class StudentsFragment extends android.support.v4.app.Fragment {
 
     }
 
+
+
+
     @Override
     public void onSaveInstanceState(@NonNull Bundle savedInstanceState){
         super.onSaveInstanceState(savedInstanceState);
@@ -196,6 +202,5 @@ public class StudentsFragment extends android.support.v4.app.Fragment {
         savedInstanceState.putSerializable(KEY_LAST_NAME_ARROW, (Serializable) mLastNameHeaderArrow.getVisibility());
         savedInstanceState.putSerializable(KEY_YEAR_ARROW, (Serializable) mYearHeaderArrow.getVisibility());
         savedInstanceState.putSerializable(KEY_GPA_ARROW, (Serializable) mGpaHeaderArrow.getVisibility());
-
     }
 }

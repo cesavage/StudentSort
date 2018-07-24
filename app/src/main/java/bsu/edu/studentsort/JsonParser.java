@@ -11,26 +11,24 @@ public class JsonParser{
     private Context mCurrentContext;
     private StudentStore mStudentStore = StudentStore.getStudentStore();
 
-
     public JsonParser(Context currentContext){
         mCurrentContext = currentContext;
-
     }
 
-    public void parseJson(){
-        String result = "No result returned.";
 
+
+
+    public void parseJson(){
         InputStream inputStream = mCurrentContext.getResources().openRawResource(R.raw.students);
         String jsonString = new Scanner(inputStream).useDelimiter("\\A").next();
 
         try {
-            JSONArray studentsArray = new JSONArray(jsonString);
+            JSONArray studentsJsonArray = new JSONArray(jsonString);
 
-
-            for (int i=0; i < studentsArray.length(); i++){
+            for (int i=0; i < studentsJsonArray.length(); i++){
                 Student currentStudent = new Student();
 
-                JSONObject studentObject = studentsArray.getJSONObject(i);
+                JSONObject studentObject = studentsJsonArray.getJSONObject(i);
                 currentStudent.firstName = studentObject.opt("firstName").toString();
                 currentStudent.lastName = studentObject.opt("lastName").toString();
                 currentStudent.year = studentObject.opt("year").toString();
@@ -45,6 +43,9 @@ public class JsonParser{
             e.printStackTrace();
         }
     }
+
+
+
 
     private void setYearIndex(Student student){
         switch (student.year){

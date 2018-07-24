@@ -12,6 +12,9 @@ public class StudentStore {
         mStudentList = new ArrayList<>();
     }
 
+
+
+
     public static StudentStore getStudentStore(){
         if (sStudentStore == null){
             sStudentStore = new StudentStore();
@@ -21,21 +24,31 @@ public class StudentStore {
     }
 
 
+
+
     public void sortByFirstName(){
         Collections.sort(mStudentList, Student.StudentFirstNameComparator);
     }
+
+
+
 
     public void sortByLastName(){
         Collections.sort(mStudentList, Student.StudentLastNameComparator);
     }
 
+
+
+
     public void sortByYearIndex(){
         Collections.sort(mStudentList, Student.StudentYearIndexComparator);
     }
 
+
+
+
     public void sortByGpa(){
         Collections.sort(mStudentList, Student.StudentGpaComparator);
     }
-
 
 }

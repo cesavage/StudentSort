@@ -23,6 +23,9 @@ public class StudentViewHolder extends RecyclerView.ViewHolder {
         mGpa = itemView.findViewById(R.id.textView_gpa);
     }
 
+
+
+
     public void bind(Student student){
         mFirstName.setText(student.firstName);
         mLastName.setText(student.lastName);

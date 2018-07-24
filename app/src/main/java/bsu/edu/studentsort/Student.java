@@ -6,14 +6,17 @@ import java.io.Serializable;
 import java.util.Comparator;
 
 public class Student implements Comparable<Student>, Serializable {
-    String firstName;
-    String lastName;
-    String year;
-    Integer yearIndex;
-    Double gpa;
+    public String firstName;
+    public String lastName;
+    public String year;
+    public Integer yearIndex;
+    public Double gpa;
 
     public Student(){
     }
+
+
+
 
     public static Comparator<Student> StudentFirstNameComparator = new Comparator<Student>() {
         @Override
@@ -25,6 +28,9 @@ public class Student implements Comparable<Student>, Serializable {
         }
     };
 
+
+
+
     public static Comparator<Student> StudentLastNameComparator = new Comparator<Student>() {
         @Override
         public int compare(Student student1, Student student2) {
@@ -34,6 +40,9 @@ public class Student implements Comparable<Student>, Serializable {
             return lastName1.compareTo(lastName2);
         }
     };
+
+
+
 
     public static Comparator<Student> StudentYearIndexComparator = new Comparator<Student>() {
         @Override
@@ -45,6 +54,9 @@ public class Student implements Comparable<Student>, Serializable {
         }
     };
 
+
+
+
     public static Comparator<Student> StudentGpaComparator = new Comparator<Student>() {
         @Override
         public int compare(Student student1, Student student2) {
@@ -54,6 +66,9 @@ public class Student implements Comparable<Student>, Serializable {
             return gpa1.compareTo(gpa2);
         }
     };
+
+
+
 
     @Override
     public int compareTo(@NonNull Student o) {
