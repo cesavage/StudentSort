@@ -1,6 +1,7 @@
 package bsu.edu.studentsort;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class StudentStore {
@@ -18,5 +19,19 @@ public class StudentStore {
 
         return sStudentStore;
     }
+
+
+    public void sortByFirstName(){
+        Collections.sort(mStudentList, Student.StudentFirstNameComparator);
+    }
+
+    public void sortByLastName(){
+        Collections.sort(mStudentList, Student.StudentLastNameComparator);
+    }
+
+    public void sortByYear(){
+        Collections.sort(mStudentList, Student.StudentYearComparator);
+    }
+
 
 }

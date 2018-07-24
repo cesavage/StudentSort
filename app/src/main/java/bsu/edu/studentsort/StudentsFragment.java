@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import java.io.Serializable;
+import java.util.Collections;
 import java.util.List;
 
 public class StudentsFragment extends android.support.v4.app.Fragment {
@@ -62,6 +63,9 @@ public class StudentsFragment extends android.support.v4.app.Fragment {
         jsonParser.parseJson();
 
         mStudentStore = StudentStore.getStudentStore();
+        //mStudentStore.sortByFirstName();
+        //mStudentStore.sortByLastName();
+        mStudentStore.sortByYear();
         updateUI();
     }
 
