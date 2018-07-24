@@ -57,6 +57,8 @@ public class StudentsFragment extends android.support.v4.app.Fragment {
         }
 
         else{
+            mStudentStore = StudentStore.getStudentStore();
+            mStudentStore.mStudentList.clear();
             getStudentsInformationFromFile();
         }
 
