@@ -43,6 +43,16 @@ public class Student implements Comparable<Student> {
         }
     };
 
+    public static Comparator<Student> StudentGpaComparator = new Comparator<Student>() {
+        @Override
+        public int compare(Student student1, Student student2) {
+            Double gpa1 = student1.gpa;
+            Double gpa2 = student2.gpa;
+
+            return gpa1.compareTo(gpa2);
+        }
+    };
+
     @Override
     public int compareTo(@NonNull Student o) {
         return 0;

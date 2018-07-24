@@ -33,5 +33,9 @@ public class StudentStore {
         Collections.sort(mStudentList, Student.StudentYearComparator);
     }
 
+    public void sortByGpa(){
+        Collections.sort(mStudentList, Student.StudentGpaComparator);
+    }
+
 
 }
