@@ -65,8 +65,8 @@ public class StudentsFragment extends android.support.v4.app.Fragment {
         mStudentStore = StudentStore.getStudentStore();
         //mStudentStore.sortByFirstName();
         //mStudentStore.sortByLastName();
-        //mStudentStore.sortByYear();
-        mStudentStore.sortByGpa();
+        mStudentStore.sortByYearIndex();
+        //mStudentStore.sortByGpa();
         updateUI();
     }
 

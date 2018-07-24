@@ -8,6 +8,7 @@ public class Student implements Comparable<Student> {
     String firstName;
     String lastName;
     String year;
+    Integer yearIndex;
     Double gpa;
 
     public Student(){
@@ -33,13 +34,13 @@ public class Student implements Comparable<Student> {
         }
     };
 
-    public static Comparator<Student> StudentYearComparator = new Comparator<Student>() {
+    public static Comparator<Student> StudentYearIndexComparator = new Comparator<Student>() {
         @Override
         public int compare(Student student1, Student student2) {
-            String year1 = student1.year.toUpperCase();
-            String year2 = student2.year.toUpperCase();
+            Integer yearIndex1 = student1.yearIndex;
+            Integer yearIndex2 = student2.yearIndex;
 
-            return year1.compareTo(year2);
+            return yearIndex1.compareTo(yearIndex2);
         }
     };
 

@@ -29,8 +29,8 @@ public class StudentStore {
         Collections.sort(mStudentList, Student.StudentLastNameComparator);
     }
 
-    public void sortByYear(){
-        Collections.sort(mStudentList, Student.StudentYearComparator);
+    public void sortByYearIndex(){
+        Collections.sort(mStudentList, Student.StudentYearIndexComparator);
     }
 
     public void sortByGpa(){

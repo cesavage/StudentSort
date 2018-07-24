@@ -36,11 +36,34 @@ public class JsonParser{
                 currentStudent.year = studentObject.opt("year").toString();
                 currentStudent.gpa = Double.parseDouble(studentObject.opt("gpa").toString());
 
+                setYearIndex(currentStudent);
+
                 mStudentStore.mStudentList.add(currentStudent);
             }
 
         } catch (JSONException e) {
             e.printStackTrace();
         }
+    }
+
+    private void setYearIndex(Student student){
+        switch (student.year){
+            case "Freshman":
+                student.yearIndex = 1;
+                break;
+
+            case "Sophomore":
+                student.yearIndex = 2;
+                break;
+
+            case "Junior":
+                student.yearIndex = 3;
+                break;
+
+            case "Senior":
+                student.yearIndex = 4;
+                break;
+        }
+
     }
 }
